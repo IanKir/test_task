@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav>
+    <ul class="nav navbar-nav">
+      <li><a href="{% url 'breed-list' %}">Breed List</a></li>
+    </ul>
+</nav>
+<form method="get" action="{% url 'breed-search' %}">
+    <p><b>Введите породу</b><br>
+        <label for="search-input"></label>
+        <input id="search-input" type="text" size="40" name="q" placeholder="Search">
+    </p>
+    <p><input type="submit" value="Search">
+</form>
+{% block content %}
+{% endblock %}
+</body>
+</html>

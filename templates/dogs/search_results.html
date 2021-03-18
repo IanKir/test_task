@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Matches</h1>
+    <ul>
+        {% for breed in object_list %}
+            <li><a href="{% url 'breed-detail' slug=breed.slug %}">{{ breed.name }}</a></li>
+            <p>{{ breed.description }}</p>
+        {% empty %}
+            <li>Nothing found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
