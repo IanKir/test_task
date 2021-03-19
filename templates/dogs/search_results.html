@@ -3,9 +3,17 @@
 {% block content %}
     <h1>Matches</h1>
     <ul>
-        {% for breed in object_list %}
+        <h3>Breeds</h3>
+        {% for breed in breeds %}
             <li><a href="{% url 'breed-detail' slug=breed.slug %}">{{ breed.name }}</a></li>
             <p>{{ breed.description }}</p>
+        {% empty %}
+            <li>Nothing found.</li>
+        {% endfor %}
+        <h3>Dogs</h3>
+        {% for dog in dogs %}
+            <li><a href="{% url 'dog-detail' slug=dog.slug %}">{{ dog.nickname }}</a></li>
+            <p>{{ dog.breed }}</p>
         {% empty %}
             <li>Nothing found.</li>
         {% endfor %}

@@ -1,5 +1,7 @@
 from django.db.models import Q
+from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.views.generic.base import View
 
 from .models import Breed, Dog
 from django.views.generic import ListView, DetailView
@@ -16,6 +18,26 @@ class BreedSearchView(ListView):
             Q(name__icontains=question) | Q(description__icontains=question)
         )
         return object_list
+
+
+class BaseSearchView(View):
+    """
+    Note:
+        __search works only with PostgreSQL
+    """
+    template_name = 'dogs/search_results.html'
+
+    def get(self, request):
+        question = request.GET.get('q')
+        dogs = Dog.objects.filter(nickname__search=question)
+        breeds = Breed.objects.filter(
+            Q(name__search=question) | Q(description__search=question),
+        )
+        context = {
+            'dogs': dogs,
+            'breeds': breeds,
+        }
+        return render(request, self.template_name, context)
 
 
 class BreedCreateView(CreateView):

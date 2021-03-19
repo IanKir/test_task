@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('search/', views.BaseSearchView.as_view(), name='base-search'),
+
     path('breeds/search/', views.BreedSearchView.as_view(), name='breed-search'),
     path('breeds/create/', views.BreedCreateView.as_view(), name='breed-create'),
     path('breeds/', views.BreedListView.as_view(), name='breed-list'),

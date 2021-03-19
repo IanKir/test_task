@@ -11,8 +11,8 @@
       <li><a href="{% url 'dog-list' %}">Dog List</a></li>
     </ul>
 </nav>
-<form method="get" action="{% url 'breed-search' %}">
-    <p><b>Введите породу</b><br>
+<form method="get" action="{% url 'base-search' %}">
+    <p><b>Input dog`s nickname or breed`s name</b><br>
         <label for="search-input"></label>
         <input id="search-input" type="text" size="40" name="q" placeholder="Search">
     </p>
