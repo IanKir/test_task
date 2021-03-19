@@ -44,3 +44,31 @@ class BreedDeleteView(DeleteView):
     model = Breed
     template_name = 'dogs/breed_delete.html'
     success_url = reverse_lazy('breed-list')
+
+
+class DogCreateView(CreateView):
+    model = Dog
+    template_name = 'dogs/dog_create.html'
+    fields = '__all__'
+    success_url = reverse_lazy('dog-list')
+
+
+class DogListView(ListView):
+    model = Dog
+
+
+class DogDetailView(DetailView):
+    model = Dog
+
+
+class DogUpdateView(UpdateView):
+    model = Dog
+    template_name = 'dogs/dog_update.html'
+    fields = '__all__'
+    success_url = reverse_lazy('dog-list')
+
+
+class DogDeleteView(DeleteView):
+    model = Dog
+    template_name = 'dogs/dog_delete.html'
+    success_url = reverse_lazy('dog-list')

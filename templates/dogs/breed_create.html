@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h3>Сохраните новую породу</h3>
+    <h3>Create new breed</h3>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

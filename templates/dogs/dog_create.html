@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h3>Breed update {{ form.name }}</h3>
+    <h3>Create new dog</h3>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Update">
+        <input type="submit" value="Save">
     </form>
 {% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ object.nickname }}</h1>
+    <p>{{ object.breed }}</p>
+    <button><a href="{% url 'dog-delete' slug=object.slug %}">Delete Dog</a></button>
+{% endblock %}
